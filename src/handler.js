@@ -143,7 +143,6 @@ const getAllBooksHandler = (request, h) => {
         let allBooks;
 
         if (queryFinished === '1') {
-            console.log('sini');
             allBooks = books
                 .filter((book) => book.finished === true)
                 .map((book) => ({
@@ -152,7 +151,6 @@ const getAllBooksHandler = (request, h) => {
                     publisher: book.publisher,
                 }));
         } else {
-            console.log('sono');
             allBooks = books
                 .filter((book) => book.finished === false)
                 .map((book) => ({
