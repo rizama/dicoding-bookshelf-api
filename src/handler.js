@@ -155,7 +155,7 @@ const editBookByIdHandler = (request, h) => {
 
     const updatedAt = new Date().toISOString();
 
-    const index = books.findIndex((note) => note.id === bookId);
+    const index = books.findIndex((book) => book.id === bookId);
 
     if (index !== -1) {
         books[index] = {
@@ -188,16 +188,16 @@ const editBookByIdHandler = (request, h) => {
     return response;
 };
 
-const deleteNoteByIdHandler = (request, h) => {
-    const { id } = request.params;
+const deleteBookByIdHandler = (request, h) => {
+    const { bookId } = request.params;
 
-    const index = books.findIndex((note) => note.id === id);
+    const index = books.findIndex((book) => book.id === bookId);
 
     if (index !== -1) {
         books.splice(index, 1);
         const response = h.response({
             status: 'success',
-            message: 'Catatan berhasil dihapus',
+            message: 'Buku berhasil dihapus',
         });
         response.code(200);
         return response;
@@ -205,7 +205,7 @@ const deleteNoteByIdHandler = (request, h) => {
 
     const response = h.response({
         status: 'fail',
-        message: 'Catatan gagal dihapus. Id tidak ditemukan',
+        message: 'Buku gagal dihapus. Id tidak ditemukan',
     });
 
     return response;
@@ -216,5 +216,5 @@ module.exports = {
     getAllBooksHandler,
     getBookByIdHandler,
     editBookByIdHandler,
-    deleteNoteByIdHandler,
+    deleteBookByIdHandler,
 };
