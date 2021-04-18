@@ -1,5 +1,5 @@
 const {
-    addNoteHandler,
+    addbooksHandler,
     getAllNotesHandler,
     getNoteByIdHandler,
     editNoteByIdHandler,
@@ -9,8 +9,8 @@ const {
 const routes = [
     {
         method: 'POST',
-        path: '/notes',
-        handler: addNoteHandler,
+        path: '/books',
+        handler: addbooksHandler,
     },
     {
         method: 'GET',
